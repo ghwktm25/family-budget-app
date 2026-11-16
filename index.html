@@ -46,7 +46,7 @@ button.danger{background:#472631;color:#ffb2b8}
 }
 #txform input.amount-input::placeholder{color:#aebed8 !important;-webkit-text-fill-color:#aebed8 !important;opacity:1}
 #txform input.amount-input:focus{border-color:#94b7ff !important;outline:2px solid #759cf9}
-</style><script src="https://accounts.google.com/gsi/client" async defer></script></head><body><header><div style="max-width:750px;margin:auto"><h1>🏡 우리집 가계부</h1><small>지출을 정확하게 · 자산은 차근차근</small></div></header><nav class="tabs" id="tabs"><button data-tab="home" class="active">🏠 요약</button><button data-tab="add">➕ 거래입력</button><button data-tab="week">📅 주간점검</button><button data-tab="fixed">🔁 고정비</button><button data-tab="assets">💰 자산·목표</button><button data-tab="backup">⚙️ 백업</button></nav><main class="wrap">
+</style><script src="https://accounts.google.com/gsi/client" async defer></script></head><body><header><div style="max-width:750px;margin:auto"><h1>🏡 우리집 가계부 <span style="font-size:11px;opacity:.7">v1.6</span></h1><small>지출을 정확하게 · 자산은 차근차근</small></div></header><nav class="tabs" id="tabs"><button data-tab="home" class="active">🏠 요약</button><button data-tab="add">➕ 거래입력</button><button data-tab="week">📅 주간점검</button><button data-tab="fixed">🔁 고정비</button><button data-tab="assets">💰 자산·목표</button><button data-tab="backup">⚙️ 백업</button></nav><main class="wrap">
 <section id="home" class="panel active"><div class="hero"><h2>오늘도 가볍게 기록해요 ✨</h2><p>지출은 10초 만에, 주간 결산은 일요일에.<br>입력한 내역만 집계하며 미입력 거래는 포함되지 않아요.</p><div class="quick-actions"><button type="button" data-go="add">＋ 오늘 지출 입력</button><button type="button" data-go="week">📅 이번 주 확인</button></div></div><div class="card"><div class="row"><h2>월간 현황</h2><input type="month" id="month" style="width:145px"></div><div class="grid"><div class="metric"><small>기록된 월 수입</small><b id="income">0원</b></div><div class="metric"><small>기록된 월 소비</small><b id="expense">0원</b></div><div class="metric"><small>월 순현금흐름</small><b id="cash">0원</b></div><div class="metric"><small>편의점·배달</small><b id="convenience">0원</b></div></div><p class="muted">기록된 거래 기준이며, 미입력 내역은 포함되지 않습니다. 순현금흐름은 내부이체를 제외한 수입 − 소비 − 저축이체 − 대출상환으로 계산합니다.</p></div><div class="card"><h3>🎯 편의점·배달 50% 감축</h3><div class="row"><span class="muted">이번 달 누적</span><strong id="goaltext">0 / 257,300원</strong></div><div class="bar"><div id="goalbar" style="width:0"></div></div><p class="muted">월 한도 257,300원. 아직 입력하지 않은 거래가 있다면 달성 여부를 확정할 수 없습니다.</p></div><div class="card"><h3>📋 최근 거래</h3><div id="recent" class="muted">거래를 추가해 주세요.</div></div></section>
 <section id="add" class="panel"><div class="hero"><h2>➕ 오늘의 거래</h2><p>금액과 사용처만 입력해도 저장할 수 있어요.<br>다른 종류의 거래는 아래에서 선택하세요.</p></div><div class="card"><h2>거래 입력 <span class="pill-info">간편 입력</span></h2><form id="txform"><div class="week-step">STEP 1 · 어떤 거래인가요?</div><div class="chip-row" id="typechips"><button type="button" class="chip selected" data-type="expense">🛍️ 지출</button><button type="button" class="chip" data-type="income">💵 수입</button><button type="button" class="chip" data-type="saving">🏦 저축</button><button type="button" class="chip" data-type="loan">💳 대출</button><button type="button" class="chip" data-type="transfer">🔄 이체</button><button type="button" class="chip" data-type="refund">↩️ 환불</button></div><div class="field-optional"><details><summary>거래 종류 자세히 보기</summary><label>거래 구분</label><select name="type" id="type"><option value="expense">소비지출</option><option value="income">수입</option><option value="saving">저축·투자 이체</option><option value="loan">대출 원리금 상환</option><option value="transfer">내 계좌 간 이체 / 카드대금 출금 (중복 제외)</option><option value="refund">소비 환불</option></select></details></div><div class="week-step" style="margin-top:15px">STEP 2 · 언제, 얼마를 사용했나요?</div><label for="txdate">거래 날짜</label><input type="date" id="txdate" name="date" required><label>금액 (원)</label><input class="amount-input" inputmode="numeric" type="number" min="1" step="1" name="amount" required placeholder="0"><div class="week-step" style="margin-top:17px">STEP 3 · 어디에 사용했나요?</div><label>가맹점 / 내용</label><input name="merchant" required placeholder="예: CU, 배달의민족, 육아휴직급여"><label>빠른 분류 선택</label><div class="chip-row" id="categorychips"><button type="button" class="chip selected" data-category="편의점">🏪 편의점</button><button type="button" class="chip" data-category="배달">🍜 배달</button><button type="button" class="chip" data-category="마트·장보기">🛒 장보기</button><button type="button" class="chip" data-category="주유">⛽ 주유</button><button type="button" class="chip" data-category="육아">🍼 육아</button><button type="button" class="chip" data-category="기타">⋯ 기타</button></div><details><summary>다른 분류 선택하기</summary><label>상세 분류</label><select name="category" id="category"><option>편의점</option><option>배달</option><option>마트·장보기</option><option>식비</option><option>주유</option><option>육아</option><option>주거·공과금</option><option>통신</option><option>보험</option><option>렌터카·교통</option><option>구독</option><option>의료</option><option>기타</option></select></details><label>결제수단</label><select name="method"><option>신한카드</option><option>롯데카드</option><option>하나은행</option><option>토스뱅크</option><option>현금</option><option>기타</option></select><label>메모 (선택)</label><input name="memo" placeholder="할부, 취소 등"><p class="help">카드 결제는 구매 시 소비로 기록하고, 이후 카드대금 출금은 ‘이체 / 카드대금 출금’으로 기록하세요. 대출 원리금 상환은 소비와 별도로 집계합니다.</p><button class="primary sticky-save" type="submit">✓ 거래 저장하기</button></form></div><div class="card"><h3>저장된 거래 <span id="txcount"></span></h3><div id="txlist"></div></div></section>
 <section id="week" class="panel"><div class="hero"><h2>📅 일요일 주간 결산</h2><p>한 주간 기록한 편의점·배달 지출을 자동 합산해요.<br>특이사항만 적고 보고서를 복사하면 끝!</p></div><div class="card"><h2>주간 가계부 점검</h2><div class="week-step">STEP 1 · 점검할 기간</div><div class="two"><div><label>시작일 (월)</label><input id="ws" type="date"></div><div><label>종료일 (일)</label><input id="we" type="date"></div></div><p class="muted">저장된 거래에서 자동 합산합니다. 아직 입력하지 않은 거래는 0원으로 표시되므로 누락 여부를 확인하세요.</p><div class="grid"><div class="metric"><small>편의점</small><b id="wstore">0원</b></div><div class="metric"><small>배달</small><b id="wdelivery">0원</b></div></div><div class="week-step" style="margin-top:17px">STEP 2 · 특별한 지출이 있었나요?</div><label>예상 밖 큰 지출 (원, 별도 메모)</label><input id="wextra" type="number" min="0" value="0"><label>특이사항</label><textarea id="wnote" placeholder="없음 / 변경된 고정비 / 큰 지출 이유"></textarea><div class="row"><strong>편의점·배달 합계</strong><strong id="wtotal">0원</strong></div><p class="muted" id="wcompare"></p><button class="primary sticky-save" id="copyweek">📋 주간 보고서 복사하기</button></div></section>
@@ -76,6 +76,9 @@ const CLIENT_KEY="family-ledger-google-client-id";
 const $=id=>document.getElementById(id);
 let token="",tokenClient=null,connected=false,remoteVersion="",timer=null,busy=false,dirty=false,blocked=false;
 const LAST_SYNC_KEY="family-ledger-last-sync-v15";
+const PENDING_KEY="family-ledger-pending-backup-v16";
+const setPending=()=>localStorage.setItem(PENDING_KEY,"1");
+const clearPending=()=>localStorage.removeItem(PENDING_KEY);
 const apiBase="https://sheets.googleapis.com/v4/spreadsheets/"+ID+"/values/";
 function status(s){$("cloudstatus").textContent=s;}
 function rawLocal(){return localStorage.getItem(KEY)||"{}";}
@@ -117,8 +120,10 @@ async function writeRemote(force=false){
    // Pad to clear old chunks in the same atomic values.update request.
    while(rows.length<200)rows.push([""]);
    await request(path+"?valueInputOption=RAW",{method:"PUT",body:JSON.stringify({range:"'"+TAB+"'!A1:C200",majorDimension:"ROWS",values:rows})});
-   remoteVersion=stamp;localStorage.setItem(LAST_SYNC_KEY,JSON.stringify({stamp,data:local}));status("✅ 백업 완료 · "+new Date().toLocaleString("ko-KR"));
- }catch(e){status("⚠️ 백업 실패 · "+e.message)}
+   remoteVersion=stamp;localStorage.setItem(LAST_SYNC_KEY,JSON.stringify({stamp,data:local}));
+   if(rawLocal()===local){clearPending();status("✅ 백업 완료 · "+new Date().toLocaleString("ko-KR"));}
+   else{setPending();dirty=true;status("추가 변경사항 감지 · 다시 백업합니다…");}
+ }catch(e){setPending();status("⚠️ 백업 실패 · 휴대폰 기록 보존 · "+e.message)}
  finally{busy=false;if(dirty){dirty=false;queueBackup();}}
 }
 function queueBackup(){if(!connected||blocked)return;clearTimeout(timer);timer=setTimeout(()=>writeRemote(),1800);status("변경사항 저장됨 · Google Sheets 백업 대기 중…")}
@@ -129,7 +134,7 @@ async function initialConnect(){
  if(!remote.stamp){blocked=false;status("Google 계정 연결 완료 · 첫 백업 진행 중");await writeRemote();return;}
  // Reconnection must not silently overwrite divergent local or cloud data.
  const equal=JSON.stringify(validate(remote.data))===JSON.stringify(validate(local));
- if(equal){blocked=false;localStorage.setItem(LAST_SYNC_KEY,JSON.stringify({stamp:remote.stamp,data:remote.data}));status("✅ Google 재연결 완료 · 휴대폰과 Sheets 일치 · 자동 백업 활성화");return;}
+ if(equal){blocked=false;clearPending();localStorage.setItem(LAST_SYNC_KEY,JSON.stringify({stamp:remote.stamp,data:remote.data}));status("✅ Google 재연결 완료 · 휴대폰과 Sheets 일치 · 자동 백업 활성화");return;}
  blocked=true;
  let note="⚠️ 휴대폰과 Google Sheets 기록이 다릅니다. 자동 백업을 중단했습니다. JSON 백업 후 'Sheets에서 복원' 또는 '지금 백업'을 선택하세요.";
  try{const last=JSON.parse(localStorage.getItem(LAST_SYNC_KEY)||"null");if(last&&last.data===remote.data)note="⚠️ 연결이 끊긴 동안 휴대폰 기록이 변경됐습니다. JSON 백업 후 '지금 백업'으로 변경사항을 올릴 수 있습니다.";}catch(_){}
@@ -155,8 +160,10 @@ $("googleconnect").onclick=()=>{
 };
 $("cloudsave").onclick=async()=>{
  if(!connected){status("먼저 Google 계정을 연결하세요.");return;}
- if(blocked){if(!confirm("기존 Google 백업을 이 휴대폰 데이터로 덮어쓸까요? 먼저 JSON 백업을 저장하는 것을 권장합니다."))return;blocked=false;const remote=await readRemote();remoteVersion=remote.stamp;}
- await writeRemote();
+ try{
+  if(blocked){if(!confirm("기존 Google 백업을 이 휴대폰 데이터로 덮어쓸까요? 먼저 JSON 백업을 저장하는 것을 권장합니다."))return;const remote=await readRemote();remoteVersion=remote.stamp;blocked=false;}
+  await writeRemote();
+ }catch(e){status("⚠️ 수동 백업 실패 · 휴대폰 기록 보존 · "+e.message);}
 };
 $("cloudrestore").onclick=async()=>{
  if(!connected)return;
@@ -164,7 +171,7 @@ $("cloudrestore").onclick=async()=>{
  const remote=await readRemote();if(!remote.stamp){status("Google Sheets에 복원할 데이터가 없습니다.");return;}
  validate(remote.data);
  if(!confirm("Sheets 백업으로 이 휴대폰의 모든 거래와 설정을 교체합니다. 먼저 JSON 백업을 저장했나요?"))return;
- localStorage.setItem(KEY,remote.data);
+ localStorage.setItem(KEY,remote.data);clearPending();
  remoteVersion=remote.stamp;blocked=false;localStorage.setItem(LAST_SYNC_KEY,JSON.stringify({stamp:remote.stamp,data:remote.data}));
  status("복원 완료 · 앱을 새로고침합니다.");
  location.reload();
@@ -176,11 +183,12 @@ $("clouddisconnect").onclick=()=>{
  status("연결 해제 · 휴대폰 데이터는 유지됩니다. 다음 연결 시 다시 인증이 필요할 수 있습니다.");
 };
 window.addEventListener("ledger:changed",()=>{
+ setPending();
  if(!connected){status("⚠️ 휴대폰에 저장됨 · Google Sheets 미백업 · 계정 재연결 필요");return;}
  if(blocked){status("⚠️ 휴대폰에 저장됨 · Sheets 기록과 차이가 있어 자동 백업 중단됨");return;}
  queueBackup();
 });
-if(localStorage.getItem(CLIENT_KEY))status("Google 재연결 필요 · 휴대폰 기록은 보존됩니다. 'Google 계정 연결 / 재연결'을 눌러 주세요.");
+if(localStorage.getItem(CLIENT_KEY))status(localStorage.getItem(PENDING_KEY)?"⚠️ 미백업 변경사항 있음 · 휴대폰 기록 보존 · Google 재연결 필요":"Google 재연결 필요 · 휴대폰 기록은 보존됩니다. 'Google 계정 연결 / 재연결'을 눌러 주세요.");
 })();
 </script>
 <script>
