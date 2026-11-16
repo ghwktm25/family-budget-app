@@ -1,4 +1,4 @@
-const CACHE='family-ledger-v16-static';
+const CACHE='family-ledger-v17-static';
 const FILES=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png'];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(FILES)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(Promise.all([caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('family-ledger-')&&k!==CACHE).map(k=>caches.delete(k)))),self.clients.claim()])));
